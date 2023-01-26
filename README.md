@@ -10,7 +10,21 @@ npm install
 yarn install
 ```
 
-### `Docker`
+### `Dockerfile`
+
+```
+docker build \
+    --build-arg DATABASE_HOST=127.0.0.1 \
+    --build-arg DATABASE_PORT=5432 \
+    --build-arg DATABASE_NAME=strapi-database \
+    --build-arg DATABASE_USERNAME=postgres \
+    --build-arg DATABASE_PASSWORD=postgres \
+    --no-cache . -t strapi
+
+docker run -d -p 1337:1337 strapi
+```
+
+### `Docker compose`
 
 ```
 docker-compose up -d --build
